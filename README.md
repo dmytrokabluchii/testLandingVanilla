@@ -5,8 +5,8 @@
   <h3 align="center">The project created in Gulp</h3>
 </p>
 
-link to example: https://dmytrokabluchii.github.io/TestingGulpProject/
+link to example: https://dmytrokabluchii.github.io/testLandingVanilla/
 
 Single page landing, responsive design.
 
-Technologies used: HTML, SCSS , Java Script, Telegram bot, jQuery, Swiper slider, Tabs, Gulp.
+Technologies used: HTML, SCSS , Java Script, Telegram bot, Swiper slider, Tabs, Gulp.
