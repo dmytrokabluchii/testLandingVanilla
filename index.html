@@ -54,11 +54,9 @@
 </head>
 
 <body class="body">
-    <div class="mobile_menu_wrap lazy-bg" 
-    data-src="./assets/images/svg/bg_mobile.svg">
-
+    <div class="mobile__menu">
     <div class="mobile__menu_bg">
-        <div class="sidemenu_top">
+        <!-- <div class="sidemenu_top">
             <div class="mobile__logo">
                 <a class="mobile__logo_symbol" href="#home_testing">
                     <svg width="192" height="55" viewbox="0 0 192 55" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -68,12 +66,7 @@
                     </svg>
                 </a>
             </div>
-            <button class="hamburger hamburger--spring" type="button">
-                <span class="hamburger-box">
-                    <span class="hamburger-inner"></span>
-                </span>
-            </button>
-        </div>
+        </div> -->
         <nav class="sidemenu">
             <ul class="sidemenu__list" id="sidemenu_links">
                 <li class="sidemenu__list-item">
@@ -168,13 +161,10 @@
                     </ul>
                 </nav>
             </div>
-
-            <div class="hamburger_menu">
-                <button class="hamburger hamburger-btn_outer hamburger--spring" type="button">
-                    <span class="hamburger-box">
-                        <span class="hamburger-inner"></span>
-                    </span>
-                </button>
+            <div class="hamburger__menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </div>
@@ -416,7 +406,7 @@
         <div class="modal__window" id="modal__popup">
     <div class="modal__field">
         <div class="modal__content">
-            <div class="modal__close_btn"></div>
+            <div class="modal__close_btn" data-close></div>
             <div class="modal__team">
                 <div class="team__column">
                     <div class="team__image">
@@ -686,7 +676,7 @@ data-src="./assets/images/contact-figures1.png">
         </div>
 
         <div class="contact__column">
-            <form class="contact__form form" action="sender.php" id="my_form" method="post">
+            <form class="contact__form form" id="my_form" method="post">
                 <div class="contact__rows">
                     <div>
                         <input class="contact__name contact__field form-row" type="text" 
@@ -719,9 +709,8 @@ data-src="./assets/images/contact-figures1.png">
                 </div>
                 
                 <div class="contact__message">
-                    <textarea class="contact__message_area contact__field" 
-                        name="registration_information" id="form_message" cols="30" rows="10">Message
-                    </textarea>
+                    <textarea class="contact__message_area contact__field" placeholder="Message"
+                        name="registration_information" id="form_message" cols="30" rows="10"></textarea>
                 </div>
 
                 <div class="contact__send">
@@ -870,6 +859,7 @@ data-src="./assets/images/contact-figures1.png">
 
 
     <!-- <script src="./assets/plugins/jquery/jquery-3.6.0.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./assets/plugins/lazyload/lazyload.js"></script>
     <script src="./assets/plugins/swiper/swiper-bundle.min.js"></script>
     <!-- <script src="./assets/plugins/phonemask/maskedinput.min.js"></script> -->
