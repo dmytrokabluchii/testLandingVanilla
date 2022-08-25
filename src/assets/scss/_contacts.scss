@@ -30,6 +30,7 @@
         box-shadow: 0px 1px 5px 3px rgba(41, 42, 43, 0.2);
         padding: 20px 15px;
         border-left: 5px solid rgba(126, 128, 129, 0);
+        @include fz(20);
         &::placeholder {
             padding: 0 0px;
             font-family: Ubuntu;
@@ -38,8 +39,9 @@
             @include fz(20);
             line-height: 23px;
         }
-        option {
-            color: #585858;
+        &:focus {
+            @include fz(19);
+            color: #000;
         }
     }
     &__form_job {
@@ -50,11 +52,9 @@
         @include fz(20);
         line-height: 23px;
     }
-
     &__field:focus {
         border-left: 5px solid #101020;
     }
-
     &__message {
         padding-bottom: 35px;
         &_area {
@@ -72,6 +72,13 @@
             border-radius: 7px;
             box-shadow: 0px 1px 5px 3px rgba(41, 42, 43, 0.2);
             border-left: 5px solid rgba(126, 128, 129, 0);
+            &::placeholder {
+                color: #585858;
+            }
+            &:focus {
+                @include fz(19);
+                color: #000;
+            }
         }
     }
     &__send {

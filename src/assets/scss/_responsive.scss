@@ -237,11 +237,16 @@ $base_size:16;
 
 @media screen and (max-width:768px) {
     .header {
+        height: 70px;
+        &__logo_symbol svg {
+            width: 75%;
+            height: 75%;
+        }
         &__menu,
         &__button {
             display: none;
         }
-        .hamburger_menu {
+        .hamburger__menu {
             display: block;
         }
     }
@@ -454,22 +459,23 @@ $base_size:16;
         }
         .form-row {
             height: 56px;
-            padding: 15px 10px;
+            padding: 15px 0px;
             &::placeholder {
-                padding-left: 16px;
-                @include fz(16);
+                padding-left: 15px;
+                @include fz(18);
                 line-height: 18px;
             }
         }
         &__form_job {
-            padding: 0 16px;
-            @include fz(16);
+            padding-left: 15px;
+            @include fz(28);
             line-height: 18px;
         }
         &__message {
             &_area {
-                @include fz(16);
+                @include fz(18);
                 line-height: 18px;
+                padding-left: 15px;
             }
         }
         &__send {
@@ -530,7 +536,6 @@ $base_size:16;
         }
         .swiper-horizontal>.swiper-scrollbar {
             left: 13%;
-            bottom: 0;
             width: 100%;
         }
         .swiper-button-prev {
@@ -565,21 +570,19 @@ $base_size:16;
     }
 }
 
-@media screen and (max-height:599px) {
-    .mobile_menu_wrap { 
-        .sidemenu__list {
-            li {
-                padding: 15px 20px;
-            }
-        }
-        .mobile__footer {
-            gap: 20px;
-            padding-bottom: 15px;
+@media screen and (max-height:620px) {
+    .header {
+        height: 70px;
+        &__logo_symbol svg {
+            width: 75%;
+            height: 75%;
         }
     }
-}
-
-@media screen and (max-height:580px) {
+    .mobile__menu {
+        .sidemenu {
+            padding-top: 35px;
+        }
+    }
     .home {
         &__wrapper {
             max-width: 560px;
@@ -607,7 +610,31 @@ $base_size:16;
     }
 }
 
+@media screen and (max-height:599px) {
+    .mobile__menu { 
+        .sidemenu__list {
+            li {
+                padding: 20px 20px;
+            }
+        }
+        .mobile__footer {
+            gap: 20px;
+        }
+    }
+}
+
 @media screen and (max-height:490px) {
+    .mobile__menu { 
+        .sidemenu__list {
+            li {
+                padding: 10px 20px;
+            }
+        }
+        .mobile__footer {
+            gap: 10px;
+        }
+    }
+
     .modal__window {
         .modal__content {
             max-width: 490px;
@@ -681,27 +708,22 @@ $base_size:16;
             padding: 0 0px 15px;
         }
     }
+}
 
-    .mobile_menu_wrap { 
-        .sidemenu__list {
-            li {
-                padding: 7px 20px;
-            }
-        }
-        .mobile__footer {
-            gap: 10px;
-            padding-bottom: 10px;
+@media screen and (max-height:390px) {
+    .mobile__menu { 
+        .sidemenu {
+            padding-top: 20px;
         }
     }
 }
 
 @media screen and (max-height:360px) {
-    .mobile_menu_wrap { 
+    .mobile__menu { 
         .sidemenu__list {
             li {
-                padding: 4px 20px;
                 a {
-                    @include fz(18);
+                    @include fz(20);
                     line-height: 20px;
                     &:hover {
                         text-decoration: 2px underline;
@@ -711,15 +733,6 @@ $base_size:16;
         }
         .mobile__footer {
             gap: 5px;
-            padding-bottom: 5px;
-            .mobile__media {
-                li {
-                    a svg {
-                        width: 25px;
-                        height: 25px;
-                    }
-                }
-            }
         }
     }
 }

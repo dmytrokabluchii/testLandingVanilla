@@ -4,8 +4,8 @@ $base_size:16;
     font-size: calc($px_size/$base_size)+rem;
 }
 
-@import "hamburger";
 @import "settings";
+@import "hamburger";
 
 @import "header";
 @import "hamburger-menu";
