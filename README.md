@@ -9,4 +9,4 @@ link to example: https://dmytrokabluchii.github.io/testLandingVanilla/
 
 Single page landing, responsive design.
 
-Technologies used: HTML, SCSS , Java Script, Telegram bot, Swiper slider, Tabs, Gulp.
+Technologies used: HTML, SCSS , Pure Java Script, Telegram bot, Swiper.js, Gulp.
