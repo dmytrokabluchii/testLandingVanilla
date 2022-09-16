@@ -43,6 +43,48 @@ li a {
   margin: 0 auto;
 }
 
+.preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  /* фоновый цвет */
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 1001;
+}
+
+.preloader__image {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  margin-top: -35px;
+  margin-left: -35px;
+  text-align: center;
+  animation: preloader-rotate 2s infinite linear;
+}
+.preloader__image path {
+  fill: #FF0B53;
+}
+
+@keyframes preloader-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loaded_hiding .preloader {
+  transition: 0.3s opacity;
+  opacity: 0;
+}
+
+.loaded .preloader {
+  display: none;
+}
+
 .btn {
   font-family: Ubuntu;
   display: flex;
@@ -218,6 +260,7 @@ input {
 }
 .mobile__menu .sidemenu__list li {
   padding: 30px 20px;
+  text-align: center;
 }
 .mobile__menu .sidemenu__list li a {
   display: inline-block;
@@ -721,6 +764,9 @@ input {
   background: rgba(0, 0, 0, 0.9);
   opacity: 0.6;
   z-index: 10;
+  border-radius: 5px;
+}
+.team__list .team__item .team__link_image {
   border-radius: 5px;
 }
 .team__list .team__item .team__link .team__info {
@@ -1350,6 +1396,9 @@ input {
     font-size: 1rem;
     line-height: 23px;
   }
+  .team .swiper-wrapper {
+    margin-bottom: 35px;
+  }
 
   .contact {
     position: relative;
@@ -1431,9 +1480,6 @@ input {
   }
 }
 @media screen and (max-width: 489px) {
-  .team .swiper-wrapper {
-    margin-bottom: 35px;
-  }
   .team .swiper-horizontal > .swiper-scrollbar {
     left: 13%;
     width: 100%;
@@ -1445,9 +1491,14 @@ input {
     display: none;
   }
 }
+@media screen and (max-width: 420px) {
+  .team .swiper-wrapper {
+    margin-bottom: 15px;
+  }
+}
 @media screen and (max-height: 850px) {
   .home__window {
-    padding: 20px 15px;
+    padding: 50px 25px;
   }
   .home__title h2 {
     font-size: 2.125rem;
@@ -1480,7 +1531,7 @@ input {
     max-width: 560px;
   }
   .home__window {
-    padding: 15px 10px;
+    padding: 20px 15px;
   }
   .home__title h2 {
     font-size: 1.875rem;
@@ -1514,6 +1565,21 @@ input {
   }
   .mobile__menu .mobile__footer {
     gap: 10px;
+  }
+
+  .home__wrapper {
+    bottom: 15vh;
+  }
+  .home__window {
+    padding: 15px 10px;
+  }
+  .home__title h2 {
+    font-size: 1.625rem;
+    line-height: 28px;
+    padding-bottom: 15px;
+  }
+  .home__subtitle p {
+    padding: 0 0px 15px;
   }
 
   .modal__window .modal__content {
@@ -1565,25 +1631,24 @@ input {
     line-height: 20px;
   }
 }
-@media screen and (max-height: 440px) {
-  .home__wrapper {
-    bottom: 5vh;
-  }
-  .home__window {
-    padding: 10px 5px;
-  }
-  .home__title h2 {
-    font-size: 1.625rem;
-    line-height: 28px;
-    padding-bottom: 15px;
-  }
-  .home__subtitle p {
-    padding: 0 0px 15px;
-  }
-}
 @media screen and (max-height: 390px) {
   .mobile__menu .sidemenu {
     padding-top: 20px;
+  }
+
+  .home__wrapper {
+    bottom: 10vh;
+  }
+  .home__window {
+    padding: 10px 10px;
+  }
+  .home__title h2 {
+    font-size: 1.375rem;
+    line-height: 26px;
+    padding-bottom: 10px;
+  }
+  .home__subtitle p {
+    padding: 0 0px 10px;
   }
 }
 @media screen and (max-height: 360px) {
@@ -1596,5 +1661,25 @@ input {
   }
   .mobile__menu .mobile__footer {
     gap: 5px;
+  }
+}
+@media screen and (max-height: 340px) {
+  .home__wrapper {
+    bottom: 6vh;
+  }
+  .home__window {
+    padding: 10px 5px;
+  }
+  .home__title h2 {
+    font-size: 1.3125rem;
+    line-height: 24px;
+  }
+  .home__buttons {
+    gap: 10px;
+  }
+  .home__buttons .btn {
+    padding: 8px 30px;
+    font-size: 1.125rem;
+    line-height: 22px;
   }
 }

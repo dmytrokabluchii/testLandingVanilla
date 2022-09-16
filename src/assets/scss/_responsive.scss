@@ -438,6 +438,9 @@ $base_size:16;
                 line-height: 23px;
             }
         }
+        .swiper-wrapper {
+            margin-bottom: 35px;
+        }
     }
 
     .contact {
@@ -531,9 +534,6 @@ $base_size:16;
 
 @media screen and (max-width:489px) {
     .team {
-        .swiper-wrapper {
-            margin-bottom: 35px;
-        }
         .swiper-horizontal>.swiper-scrollbar {
             left: 13%;
             width: 100%;
@@ -547,12 +547,20 @@ $base_size:16;
     }
 }
 
+@media screen and (max-width:420px) {
+    .team {
+        .swiper-wrapper {
+            margin-bottom: 15px;
+        }
+    }
+}
+
 
 
 @media screen and (max-height:850px) {
     .home {
         &__window {
-            padding: 20px 15px;
+            padding: 50px 25px;
         }
         &__title h2 {
             @include fz(34);
@@ -588,7 +596,7 @@ $base_size:16;
             max-width: 560px;
         }
         &__window {
-            padding: 15px 10px;
+            padding: 20px 15px;
         }
         &__title h2 {
             @include fz(30);
@@ -632,6 +640,23 @@ $base_size:16;
         }
         .mobile__footer {
             gap: 10px;
+        }
+    }
+
+    .home {
+        &__wrapper {
+            bottom: 15vh;
+        }
+        &__window {
+            padding: 15px 10px;
+        }
+        &__title h2 {
+            @include fz(26);
+            line-height: 28px;
+            padding-bottom: 15px;
+        }
+        &__subtitle p {
+            padding: 0 0px 15px;
         }
     }
 
@@ -691,29 +716,26 @@ $base_size:16;
     }
 }
 
-@media screen and (max-height:440px) {
-    .home {
-        &__wrapper {
-            bottom: 5vh;
-        }
-        &__window {
-            padding: 10px 5px;
-        }
-        &__title h2 {
-            @include fz(26);
-            line-height: 28px;
-            padding-bottom: 15px;
-        }
-        &__subtitle p {
-            padding: 0 0px 15px;
-        }
-    }
-}
-
 @media screen and (max-height:390px) {
     .mobile__menu { 
         .sidemenu {
             padding-top: 20px;
+        }
+    }
+    .home {
+        &__wrapper {
+            bottom: 10vh;
+        }
+        &__window {
+            padding: 10px 10px;
+        }
+        &__title h2 {
+            @include fz(22);
+            line-height: 26px;
+            padding-bottom: 10px;
+        }
+        &__subtitle p {
+            padding: 0 0px 10px;
         }
     }
 }
@@ -733,6 +755,29 @@ $base_size:16;
         }
         .mobile__footer {
             gap: 5px;
+        }
+    }
+}
+
+@media screen and (max-height:340px) {
+    .home {
+        &__wrapper {
+            bottom: 6vh;
+        }
+        &__window {
+            padding: 10px 5px;
+        }
+        &__title h2 {
+            @include fz(21);
+            line-height: 24px;
+        }
+        &__buttons {
+            gap: 10px;
+            .btn {
+                padding: 8px 30px;
+                @include fz(18);
+                line-height: 22px;
+            }
         }
     }
 }

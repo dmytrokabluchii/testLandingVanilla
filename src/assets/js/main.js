@@ -7,43 +7,51 @@ window.addEventListener('DOMContentLoaded', () => {
   modalWindow = document.querySelector('.modal__window'),
   modalField = document.querySelector('.modal__field'),
   overlay = document.querySelector('.overlay'),
-  btnModalOpen = document.querySelectorAll('[data-modal]'),
-  btnModalClose = document.querySelector('.modal__close_btn'),
-  contactForm = document.querySelectorAll('.contact__form');
+  btnModalOpen = document.querySelectorAll('[data-modal]');
+
+  // Preloader page
+  function startPreload() {
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded_hiding');
+      window.setTimeout( () => {
+        document.body.classList.add('loaded');
+        document.body.classList.remove('loaded_hiding');
+      }, 500);
+    }); 
+  }
+  startPreload();
 
   // fix header
-  function fixHeader() {
+  function fixHeader(el) {
     // When the user scrolls the page, execute myFunction
+    // .onscroll - Обработчик для события скролла
     window.onscroll = function() {
       functionFixHeader();
     };
     // Get the offset position of the fix header
     function functionFixHeader() {
       if (window.pageYOffset > 0) {
-        header.classList.add("fixed_header");
+        el.classList.add("fixed_header");
       } else {
-        header.classList.remove("fixed_header");
+        el.classList.remove("fixed_header");
       }
     } 
   }
-  fixHeader();
+  fixHeader(header);
 
   // Smooth Scroll
   function smoothScroll() {
-      for (let i of anchors) {
-        i.addEventListener('click', (e) => {
-          e.preventDefault();
-          const blockID = i.getAttribute('href');
-          // метод «scrollIntoView» позиц-т прокрутку так, чтобы элемент оказался 
-          // в видимой области браузера. Метод принимает 2 параметра:
-          // behavior — определяет тип анимации — auto или smooth;
-          // block — в какое место эл-та перем-ся — start, center, end или nearest;
-          document.querySelector(blockID).scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+    for (let i of anchors) {
+      i.addEventListener('click', (e) => {
+        e.preventDefault();
+        const blockID = i.getAttribute('href');
+        // метод «scrollIntoView» позиц-т прокрутку(под-е в конце кода)
+        document.querySelector(blockID).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
         });
-      }
+      });
+    }
   }
   smoothScroll();
 
@@ -75,27 +83,29 @@ window.addEventListener('DOMContentLoaded', () => {
       autoHeight: true,
       rewind: true,
       spaceBetween: 20,
+      slidesPerView: 3,
+      slidesPerGroup: 3,
       // откл. свайп при нажатии на кнопку в слайдере
       watchSlidesProgress: true,
       breakpoints: {
         // when window width is >= 768px
-        390: {
+        320: {
           slidesPerView: 1,
+          slidesPerGroup: 1,
           spaceBetween: 15
         },
         490: {
           slidesPerView: 2,
+          slidesPerGroup: 2,
         },
         768: {
           slidesPerView: 3,
         },
       },  
-        // Navigation arrows
+      // Navigation arrows
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
-        // nextEl: '.custom-next',
-        // prevEl: '.custom-prev',
       },
       scrollbar: {
         el: '.swiper-scrollbar',
@@ -104,6 +114,15 @@ window.addEventListener('DOMContentLoaded', () => {
       // autoplay: {
       //   delay: 5000,
       // },
+    });
+    document.getElementById('tab-1').addEventListener('click',()=>{
+      swiper.slideTo(0, 500);
+    });
+    document.getElementById('tab-2').addEventListener('click',()=>{
+        swiper.slideTo(3, 500);
+    });
+    document.getElementById('tab-3').addEventListener('click',()=>{
+      swiper.slideTo(6, 500);
     });
   }
   startSwiper();
@@ -120,6 +139,7 @@ window.addEventListener('DOMContentLoaded', () => {
   btnModalOpen.forEach(btn => {
       btn.addEventListener('click', openModal);
   });
+
   function closeModal() {
     modalWindow.classList.toggle('active');
     overlay.classList.remove('active');
@@ -133,7 +153,7 @@ window.addEventListener('DOMContentLoaded', () => {
         closeModal();
     }
   });
-  // закрытия модал. окна по ESС. Cобытие keydown срабатывает, когда клавиша была нажата
+  // закрытия модал. окна по ESС. Cобытие keydown срабатывает, когда клавиша нажата
     document.addEventListener('keydown', (e) => {
       // у нашего объекта событие (e) есть св-во .code, кот-е может отслеж-ть код нашей клавиши
       // Метод Node.contains() возвращает Boolean, проверяет, находится ли элемент ('active') в теле страницы.
@@ -142,37 +162,25 @@ window.addEventListener('DOMContentLoaded', () => {
       }
   });
 
-
   // send form to my Telegram BOT and Validate
   const nameInput = document.getElementById('form_name'),
         emailInput = document.getElementById('form_email'),
         phoneInput = document.getElementById('form_phone'),
         typeJobs = document.getElementById('form_type_jobs'),
         messageInput = document.getElementById('form_message'),
+        fileInput =  document.getElementById('input__file'),
+        fileInputWrapper = document.querySelector('.contact__upload'),
         BOT_TOKEN = '5324396066:AAFDhE5HZ4_mI54HC4OmzWCfjxawduNh8S8',
         CHAT_ID = '-1001758890997';
 
   const message = {
     loading: 'assets/images/svg/spinner.svg',
-    failureName: 'Write you name',
-    failurePhone: 'Write correct your phone number',
-    failureEmail: 'Write correct your email address'
+    // failureName: 'Write you name',
+    // failurePhone: 'Write correct your phone number',
+    // failureEmail: 'Write correct your email address'
   };
 
-  // Цвет-е оформление бордера. Проверка на пустую строку по имени
-  function validationFormColor(elem) {
-    elem.addEventListener('input', () => {
-      if (elem.value !== '') {
-        elem.style.borderColor = 'green';
-      } else {
-        elem.style.borderColor = 'red';
-      }
-    });
-  }
-  validationFormColor(nameInput);
-  validationFormColor(typeJobs);
-  validationFormColor(messageInput);
-  
+  // Function-alert from sweetalert-plugin
   function showSuccess() {
     Swal.fire({
       position: 'top-end',
@@ -186,20 +194,35 @@ window.addEventListener('DOMContentLoaded', () => {
     Swal.fire({
       position: 'top-end',
       icon: 'info',
-      title: 'Fill all field marked *!',
+      title: 'Add file with your SV and fill all fields marked *',
       showConfirmButton: false,
-      timer: 4000
+      timer: 5000
     });
   }
   function showError() {
     Swal.fire({
       position: 'top-end',
       icon: 'error',
-      title: 'Server error!',
+      title: 'Server error, the message not send!',
       showConfirmButton: false,
-      timer: 3000
+      timer: 4000
     });
   }
+
+  // Цвет-е оформление бордера + Проверка на пустую строку
+  function validationFormColor(elem) {
+    elem.addEventListener('input', () => {
+      if (elem.value !== '') {
+        elem.style.borderColor = 'green';
+      } else {
+        elem.style.borderColor = 'red';
+      }
+    });
+  }
+  validationFormColor(nameInput);
+  validationFormColor(typeJobs);
+  validationFormColor(messageInput);
+  
   // Phone-number mask
   function validatePhone() {
     [].forEach.call(document.querySelectorAll('#form_phone'), function(input) {
@@ -232,20 +255,6 @@ window.addEventListener('DOMContentLoaded', () => {
         if (event.type == "blur" && this.value.length < 5) {
           this.value = "";
         } 
-
-        // Доработать
-        phoneInput.addEventListener('input', onInputPhone); 
-        function isPhoneValid(value) {
-          return reg.test(value);
-        }
-        function onInputPhone() {
-          if (isPhoneValid(phoneInput.value)) {
-            this.style.borderColor = 'green';
-          } else {
-            this.style.borderColor = 'red';
-          }
-        }
-
       }
       input.addEventListener("input", mask, false);
       input.addEventListener("focus", mask, false);
@@ -254,7 +263,15 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
   validatePhone();
-  
+  // Add color for border
+  phoneInput.addEventListener('input', onInputPhone); 
+  function onInputPhone() {
+    if (phoneInput.value.length < 17) {
+      this.style.borderColor = 'red';
+    } else {
+      this.style.borderColor = 'green';
+    }
+  }
   // Validate EMAIL
   function validateEmail(email) {
     const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
@@ -274,64 +291,89 @@ window.addEventListener('DOMContentLoaded', () => {
   }
   validateEmail(emailInput);
 
-  // берем все наши формы и под каждую из них подвяз-м фун-ю postData, она и будет обработ-м события при отправке
-  document.querySelectorAll('form').forEach(item => { 
-    postData(item); 
-  });
+  const sendForm = document.querySelector('.contact__form');
+  const URI_APIDOC = `https://api.telegram.org/bot${BOT_TOKEN}/sendDocument`;
+  const URI_APIMESSAGE = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
+  postData(sendForm); 
   function postData(form) {
     // навеш-м событие 'submit' и оно будет сраб-ть каждый раз когда форма отправ-ся
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', function(e) {
       // отмен-м станд-е поведение браузера(у нас это перез-ка при отправке данных)
       e.preventDefault();
-      let text = encodeURI(`Name: ${nameInput.value};\nEmail: ${emailInput.value};\nPhone: ${phoneInput.value};\nJobs: ${typeJobs.value};\nMessage: ${messageInput.value}`);
-      
-      // Подгружаем спиннер Доработать!
-      // const statusMessage = document.createElement('img');
-      // statusMessage.src = message.loading;
-      // statusMessage.style.cssText = `
-      //     display: block;
-      //     margin: 0 auto;
-      // `;
-      // form.insertAdjacentElement('afterend', statusMessage);
+      let text = encodeURI(`testLandingVanilla\n\nName: ${nameInput.value};\nEmail: ${emailInput.value};\nPhone: ${phoneInput.value};\nJobs: ${typeJobs.value};\nMessage: ${messageInput.value}`);
+      // Data for Upload CV
+      const formData = new FormData();
+      formData.append('chat_id', CHAT_ID);
+      // yourCV - name input / .files[0] - перший файл массиву, подр. в кінці файлу
+      formData.append('document', this.yourCV.files[0]);
+      // Подгружаем спиннер
+      let statusMessage = document.createElement('img');
+      statusMessage.src = message.loading;
+      statusMessage.style.cssText = `
+          display: block;
+          margin: 0 auto;
+          width: 45px;
+          height: 45px;
+      `;
+      fileInputWrapper.insertAdjacentElement('afterend', statusMessage); 
 
-      if (nameInput.value !== '' && emailInput.value !== '' && phoneInput.value !== '') { 
-        axios.get(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=` + 
+      if (nameInput.value !== '' && emailInput.value !== '' && phoneInput.value !== '' && 
+      phoneInput.value.length > 16 && fileInput.value !== '') { 
+        axios.post(`${URI_APIMESSAGE}?chat_id=${CHAT_ID}&text=` + 
         text + '&parse_mode=html') 
-        .then( () => {
-          // console.log(data.status);
-          showSuccess();
-        })
-        .catch( () => { 
-          showError(); 
-        })
-        .finally( () => {
-          // очищаем нашу форму после отправки методом reset()
-          form.reset();
-        }); 
-      } else {
+          // .then( () => {
+          //   // console.log(data.status);
+          //   showSuccess();
+          //   statusMessage.remove();
+          // })
+          .catch( () => { 
+            showError(); 
+            statusMessage.remove();
+          })
+          .finally( () => {
+            // очищаем нашу форму после отправки методом reset()
+            form.reset();
+          }); 
+        } else {
         showInfoValidate();
+        statusMessage.remove();
       }
+      // send file to telegram
+        axios.post(URI_APIDOC, formData, {
+          headers: {
+          // Нижче ми кажемо що відправляемо файл
+          'Content-Type': 'multipart/form-data'
+          }
+        })
+        .then( () => {
+          showSuccess();
+          statusMessage.remove();
+        });
+      
     });
   }
 
 });
 
 // Tabs
-  // Get the element with id="defaultOpen" and click on it
-  document.getElementById("defaultOpen").click();
-  function getTabs(evt, partnersName) {
-    let i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("partners__tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(partnersName).style.display = "block";
-    evt.currentTarget.className += " active";
+// Get the element with id="defaultOpen" and click on it
+const switchTabs = document.getElementById("defaultOpen");
+switchTabs.click();
+function getTabs(evt, partnersName) {
+  let i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("partners__tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(partnersName).style.display = "block";
+  evt.currentTarget.className += " active";
 }
+
 
 
 
@@ -342,3 +384,17 @@ window.addEventListener('DOMContentLoaded', () => {
 // selectionStart 
 // властивість об'єкту Element (елементів textarea і input) яка повертає або задає число що представляє позицію 
 // початку виділення. Для отримання кінцевої позиції виділення використовуйте властивість selectionEnd.
+
+// «scrollIntoView» 
+// позиц-т прокрутку так, чтобы элемент оказался в видимой области браузера, принимает 2 параметра:
+// behavior — определяет тип анимации — auto или smooth;
+// block — в какое место эл-та перем-ся — start, center, end или nearest;
+
+// sendMessage
+// Use this method to send text messages. On success, the sent Message is returned.
+// https://tlgrm.ru/docs/bots/api#sendmessage
+
+// sendDocument
+// Use this method to send general files. On success, the sent Message is returned. Bots can 
+// currently send files of any type of up to 50 MB in size, this limit may be changed in the future.
+// https://tlgrm.ru/docs/bots/api#senddocument
