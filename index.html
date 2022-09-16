@@ -54,6 +54,13 @@
 </head>
 
 <body class="body">
+    <div class="preloader">
+        <svg class="preloader__image" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512">
+          <path fill="currentColor"
+            d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z">
+          </path>
+        </svg>
+    </div>
     <div class="mobile__menu">
     <div class="mobile__menu_bg">
         <!-- <div class="sidemenu_top">
@@ -368,35 +375,35 @@
                 <div class="partners__tab">
                     <img class="partners__logo_pic lazy" 
                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
-                    data-src="./assets/images/partners_2.png" alt="">
+                    data-src="./assets/images/partners_2.png" alt="logo-partner">
                 </div>
             </li>
             <li class="partners__logo tablinks" onclick="getTabs(event, 'back-end')">
                 <div class="partners__tab">
                     <img class="partners__logo_pic lazy" 
                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
-                    data-src="./assets/images/partners_3.png" alt="">
+                    data-src="./assets/images/partners_3.png" alt="logo-partner">
                 </div>
             </li>
             <li class="partners__logo tablinks" onclick="getTabs(event, 'hr-manager')">
                 <div class="partners__tab">
                     <img class="partners__logo_pic lazy"
                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
-                    data-src="./assets/images/partners_4.png" alt="">
+                    data-src="./assets/images/partners_4.png" alt="logo-partner">
                 </div>
             </li>
             <li class="partners__logo tablinks" onclick="getTabs(event, 'designer_job')">
                 <div class="partners__tab">
                     <img class="partners__logo_pic lazy"
                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
-                    data-src="./assets/images/partners_5.png" alt="">
+                    data-src="./assets/images/partners_5.png" alt="logo-partner">
                 </div>
             </li>
             <li class="partners__logo tablinks" onclick="getTabs(event, 'genaral-director')">
                 <div class="partners__tab">
                     <img class="partners__logo_pic lazy"
                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
-                    data-src="./assets/images/partners_6.png" alt="">
+                    data-src="./assets/images/partners_6.png" alt="logo-partner">
                 </div>
             </li>
         </ul>
@@ -520,21 +527,21 @@
         <div class="team__column">
             <div class="team__place">
                 <div class="team__choise">
-                    <div class="team__tab">
+                    <div class="team__tab" id="tab-1">
                         <div class="team__link">
                             <input type="radio" id="tab1" name="tab-group" checked>
                             <div class="team__link_circle"></div>
                             <label for="tab1" class="team__tab_label tab-title">Team 1</label> 
                         </div>
                     </div> 
-                    <div class="team__tab">
+                    <div class="team__tab" id="tab-2">
                         <div class="team__link">
                             <input type="radio" id="tab2" name="tab-group">
                             <div class="team__link_circle"></div>
                             <label for="tab2" class="team__tab_label tab-title">Team 2</label> 
                         </div>
                     </div>
-                    <div class="team__tab">
+                    <div class="team__tab" id="tab-3">
                         <div class="team__link">
                             <input type="radio" id="tab3" name="tab-group">
                             <div class="team__link_circle"></div>
@@ -550,11 +557,11 @@
                         <div class="team__link">
                             <img class="team__link_image lazy"
                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
-                                data-src="./assets/images/team_1.png" alt="senior_editor_image">
+                                data-src="./assets/images/team_1.jpg" alt="senior_editor_image">
                             <div class="team__info">
                                 <div class="team__text">
                                     <h6 class="team__text_name">Tom Dou</h6>
-                                    <div class="team__text_occupation">Front-End</div>
+                                    <div class="team__text_occupation">Team Lead</div>
                                 </div>
                                 <div class="team__button">
                                     <button class="team__button_read btn" type="button" data-modal>
@@ -567,7 +574,7 @@
                         <div class="team__link">
                             <img class="team__link_image lazy"
                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
-                                data-src="./assets/images/team_2.png" alt="editorial_director_image">
+                                data-src="./assets/images/team_2.jpg" alt="editorial_director_image">
                             <div class="team__info">
                                 <div class="team__text">
                                     <h6 class="team__text_name">ALEX ZENG</h6>
@@ -585,7 +592,7 @@
                         <div class="team__link">
                             <img class="team__link_image lazy"
                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
-                                data-src="./assets/images/team_3.png" alt="editorial_director_image">
+                                data-src="./assets/images/team_3.jpg" alt="editorial_director_image">
                             <div class="team__info">
                                 <div class="team__text">
                                     <h6 class="team__text_name">Mike Mur</h6>
@@ -603,11 +610,11 @@
                         <div class="team__link">
                             <img class="team__link_image lazy"
                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
-                                data-src="./assets/images/team_1.png" alt="guide_image">
+                                data-src="./assets/images/team_4.jpg" alt="guide_image">
                             <div class="team__info">
                                 <div class="team__text">
-                                    <h6 class="team__text_name">Tom Dou</h6>
-                                    <div class="team__text_occupation">Front-End</div>
+                                    <h6 class="team__text_name">Tim Kukes</h6>
+                                    <div class="team__text_occupation">Back-End Developer</div>
                                 </div>
                                 <div class="team__button">
                                     <button class="team__button_read btn" type="button" data-modal>
@@ -622,10 +629,10 @@
                         <div class="team__link">
                             <img class="team__link_image lazy"
                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
-                                data-src="./assets/images/team_2.png" alt="team-manager_image">
+                                data-src="./assets/images/team_5.jpg" alt="guide_image">
                             <div class="team__info">
                                 <div class="team__text">
-                                    <h6 class="team__text_name">ALEX ZENG</h6>
+                                    <h6 class="team__text_name">ALEXIA Minaj</h6>
                                     <div class="team__text_occupation">Editorial Director</div>
                                 </div>
                                 <div class="team__button">
@@ -640,11 +647,65 @@
                         <div class="team__link">
                             <img class="team__link_image lazy"
                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
-                                data-src="./assets/images/team_3.png" alt="visual_editor_image">
+                                data-src="./assets/images/team_6.jpg" alt="visual_editor_image">
                             <div class="team__info">
                                 <div class="team__text">
-                                    <h6 class="team__text_name">Mike Mur</h6>
-                                    <div class="team__text_occupation">Guide</div>
+                                    <h6 class="team__text_name">Nikolas Cage</h6>
+                                    <div class="team__text_occupation">Project Manager</div>
+                                </div>
+                                <div class="team__button">
+                                    <button class="team__button_read btn" type="button" data-modal>
+                                        Read More
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="team__item swiper-slide">
+                        <div class="team__link">
+                            <img class="team__link_image lazy"
+                                src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
+                                data-src="./assets/images/team_7.jpg" alt="visual_editor_image">
+                            <div class="team__info">
+                                <div class="team__text">
+                                    <h6 class="team__text_name">Adzhit Harrison</h6>
+                                    <div class="team__text_occupation">Front-End Developer</div>
+                                </div>
+                                <div class="team__button">
+                                    <button class="team__button_read btn" type="button" data-modal>
+                                        Read More
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="team__item swiper-slide">
+                        <div class="team__link">
+                            <img class="team__link_image lazy"
+                                src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
+                                data-src="./assets/images/team_8.jpg" alt="visual_editor_image">
+                            <div class="team__info">
+                                <div class="team__text">
+                                    <h6 class="team__text_name">Tim Rarrys</h6>
+                                    <div class="team__text_occupation">Office manager</div>
+                                </div>
+                                <div class="team__button">
+                                    <button class="team__button_read btn" type="button" data-modal>
+                                        Read More
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="team__item swiper-slide">
+                        <div class="team__link">
+                            <img class="team__link_image lazy"
+                                src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
+                                data-src="./assets/images/team_9.jpg" alt="visual_editor_image">
+                            <div class="team__info">
+                                <div class="team__text">
+                                    <h6 class="team__text_name">Niki Katary</h6>
+                                    <div class="team__text_occupation">Designer</div>
                                 </div>
                                 <div class="team__button">
                                     <button class="team__button_read btn" type="button" data-modal>
@@ -715,17 +776,15 @@ data-src="./assets/images/contact-figures1.png">
 
                 <div class="contact__send">
                     <div class="contact__upload">
-                        
                         <div class="input__wrapper">
-                            <input type="file" name="your_cv" id="input__file" 
+                            <input type="file" name="yourCV" id="input__file" 
                             class="input input__file form_file" multiple>
                             <label for="input__file" class="input__file-button">
                             <span class="input__file-icon-wrapper"><img class="input__file-icon" 
                                 src="./assets/images/svg/upload-2-fill.svg" alt="Выбрать файл" width="25"></span>
-                            <span class="input__file-button-text">Upload your CV</span>
+                            <span class="input__file-button-text">Upload your CV*</span>
                             </label>
                         </div>
-
                     </div>
                     <div class="contact__button">
                         <button class="contact__button_form btn" type="submit">Submit</button>
