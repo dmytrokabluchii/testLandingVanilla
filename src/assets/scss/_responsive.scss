@@ -578,7 +578,7 @@ $base_size:16;
     }
 }
 
-@media screen and (max-height:620px) {
+@media screen and (max-height:690px) {
     .header {
         height: 70px;
         &__logo_symbol svg {
@@ -593,10 +593,10 @@ $base_size:16;
     }
     .home {
         &__wrapper {
-            max-width: 560px;
+            // max-width: 340px;
         }
         &__window {
-            padding: 20px 15px;
+            padding: 30px 15px;
         }
         &__title h2 {
             @include fz(30);
@@ -631,7 +631,7 @@ $base_size:16;
     }
 }
 
-@media screen and (max-height:490px) {
+@media screen and (max-height:515px) {
     .mobile__menu { 
         .sidemenu__list {
             li {
@@ -716,12 +716,7 @@ $base_size:16;
     }
 }
 
-@media screen and (max-height:390px) {
-    .mobile__menu { 
-        .sidemenu {
-            padding-top: 20px;
-        }
-    }
+@media screen and (max-height:430px) {
     .home {
         &__wrapper {
             bottom: 10vh;
@@ -736,6 +731,14 @@ $base_size:16;
         }
         &__subtitle p {
             padding: 0 0px 10px;
+        }
+    }
+}
+
+@media screen and (max-height:390px) {
+    .mobile__menu { 
+        .sidemenu {
+            padding-top: 20px;
         }
     }
 }
@@ -759,7 +762,7 @@ $base_size:16;
     }
 }
 
-@media screen and (max-height:340px) {
+@media screen and (max-height:380px) {
     .home {
         &__wrapper {
             bottom: 6vh;
