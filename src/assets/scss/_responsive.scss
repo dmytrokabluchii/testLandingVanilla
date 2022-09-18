@@ -438,9 +438,6 @@ $base_size:16;
                 line-height: 23px;
             }
         }
-        .swiper-wrapper {
-            margin-bottom: 35px;
-        }
     }
 
     .contact {
@@ -550,7 +547,7 @@ $base_size:16;
 @media screen and (max-width:420px) {
     .team {
         .swiper-wrapper {
-            margin-bottom: 15px;
+            margin-bottom: 45px;
         }
     }
 }

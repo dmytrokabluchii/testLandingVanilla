@@ -747,6 +747,21 @@ input {
   display: block;
   position: relative;
   line-height: 0;
+  width: 100%;
+  position: relative;
+}
+.team__list .team__item .team__link::before {
+  content: "";
+  display: block;
+  padding-top: 80.5%;
+}
+.team__list .team__item .team__link img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 .team__list .team__item .team__link:after {
   content: "";
@@ -1396,9 +1411,6 @@ input {
     font-size: 1rem;
     line-height: 23px;
   }
-  .team .swiper-wrapper {
-    margin-bottom: 35px;
-  }
 
   .contact {
     position: relative;
@@ -1493,7 +1505,7 @@ input {
 }
 @media screen and (max-width: 420px) {
   .team .swiper-wrapper {
-    margin-bottom: 15px;
+    margin-bottom: 45px;
   }
 }
 @media screen and (max-height: 850px) {
